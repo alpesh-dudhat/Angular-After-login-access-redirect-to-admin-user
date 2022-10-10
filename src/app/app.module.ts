@@ -1,17 +1,15 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { FormsModule } from '@angular/forms';
-
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AppComponent } from './app.component';
-import { HelloComponent } from './hello.component';
 import { RouterModule, Routes } from '@angular/router';
 import { UserModule, USER_ROUTES } from './user/user.module';
 import { LoginComponent } from './login/login.component';
+import { AuthService } from './service/auth.service';
 import { AuthGuard } from './guards/auth.guard';
 import { ADMIN_ROUTES } from './admin/admin.module';
 import { AdminGuard } from './guards/admin.guard';
 import { UserGuard } from './guards/user.guard';
-import { MatInputModule } from '@angular/material/input';
 
 export const MAIN_ROUTES: Routes = [
   {
@@ -52,8 +50,9 @@ const routes: Routes = [
     FormsModule,
     RouterModule.forRoot(routes),
     UserModule,
+    ReactiveFormsModule,
   ],
-  declarations: [AppComponent, HelloComponent, LoginComponent],
+  declarations: [AppComponent, LoginComponent],
   bootstrap: [AppComponent],
   providers: [AuthGuard],
 })
