@@ -11,6 +11,7 @@ import { AuthGuard } from './guards/auth.guard';
 import { ADMIN_ROUTES } from './admin/admin.module';
 import { AdminGuard } from './guards/admin.guard';
 import { UserGuard } from './guards/user.guard';
+import { MatInputModule } from '@angular/material/input';
 
 export const MAIN_ROUTES: Routes = [
   {
@@ -54,5 +55,6 @@ const routes: Routes = [
   ],
   declarations: [AppComponent, HelloComponent, LoginComponent],
   bootstrap: [AppComponent],
+  providers: [AuthGuard],
 })
 export class AppModule {}
