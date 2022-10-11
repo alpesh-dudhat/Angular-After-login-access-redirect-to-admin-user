@@ -9,9 +9,9 @@ export class AppComponent {
   // name = 'Angular ' + VERSION.major;
 
   ngOnInit() {
-    localStorage.setItem('id', 'admin');
-    localStorage.setItem('pass', 'admin');
-    localStorage.setItem('id', 'user');
-    localStorage.setItem('pass', 'user');
+    // localStorage.setItem('id', 'admin');
+    // localStorage.setItem('pass', 'admin');
+    // localStorage.setItem('id', 'user');
+    // localStorage.setItem('pass', 'user');
   }
 }
