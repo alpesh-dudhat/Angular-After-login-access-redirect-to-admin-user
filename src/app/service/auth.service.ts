@@ -10,27 +10,11 @@ export class AuthService {
   password: '';
   constructor(private router: Router) {}
 
-  //   isUser(): boolean {
-  //     if (username === "user" && password === "user") {
-  //       return username;
-  //     }
-  //     return false;
-  //   }
+  isLoggedIn(){
 
-  //   isAdmin(): boolean {
-  //     if (username === "admin" && password === "admin") {
-  //       return true;
-  //     }
-  //     return false;
-  //   }
+  }
 
-  login(username, password) {
-    // return ({ username, password })
-    //     .pipe(map(user => {
-    //         // store user details and jwt token in local storage to keep user logged in between page refreshes
-    //         // localStorage.setItem('user', JSON.stringify(user));
-    //         // this.userSubject.next(user);
-    //         return user;
-    //     }));
+  login(){
+    
   }
 }

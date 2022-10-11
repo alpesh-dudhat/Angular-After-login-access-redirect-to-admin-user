@@ -3,33 +3,30 @@ import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AppComponent } from './app.component';
 import { RouterModule, Routes } from '@angular/router';
-import { UserModule, USER_ROUTES } from './user/user.module';
+import { UserModule } from './user/user.module';
 import { LoginComponent } from './login/login.component';
-import { AuthService } from './service/auth.service';
-import { AuthGuard } from './guards/auth.guard';
 import { ADMIN_ROUTES } from './admin/admin.module';
-import { AdminGuard } from './guards/admin.guard';
-import { UserGuard } from './guards/user.guard';
+import { AuthGuard } from './guards/auth.guard';
 
 export const MAIN_ROUTES: Routes = [
   {
-    path: 'user',
-    children: USER_ROUTES,
-    canActivate: [UserGuard],
-    canActivateChild: [UserGuard],
-  },
-  {
     path: 'admin',
     children: ADMIN_ROUTES,
-    canActivate: [AdminGuard],
-    canActivateChild: [AdminGuard],
+    canActivate: [AuthGuard],
+    canActivateChild: [AuthGuard],
+  },
+
+  {
+    path: 'admin',
+    canActivate: [AuthGuard],
+    // below code is lazy loading it is used for site speed, when admin route then only the admin would load
+    loadChildren: () =>
+      import('./admin/admin.module').then((m) => m.AdminModule),
   },
 ];
 const routes: Routes = [
   {
     path: 'login',
-    data: { label: 'Login' },
-    pathMatch: 'prefix',
     component: LoginComponent,
   },
   {
